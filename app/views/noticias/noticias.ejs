@@ -1,12 +1,35 @@
 <!DOCTYPE html>
-	<html lang="pt-br">
-		<head>
-			<meta charset="utf-8"/>
-			<title>Not�cias</title>
-		</head>
-	<body>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Notícias</title>
+</head>
+<body>
+	<h1>Notícias</h1>
 
-		<h1>Not�cias</h1>
+	<table>
+		<tr>
+			<td>ID</td>
+			<td>Título</td>
+			<td>Notícia</td>
+		</tr>
 
-	</body>
+		<!-- será interpretado pelo JavaScript -->
+		<% for(var i=0; i < noticias.length; i++) { %>
+
+		<!-- = serve para imprimir o valor na tela -->
+		<tr>
+			<td><%= noticias[i].id_noticias	 %></td>
+			<td><%= noticias[i].titulo	     %></td>
+			<td><%= noticias[i].noticia 	 %></td>
+		</tr>
+
+		<% } %>
+
+
+	</table>
+
+</body>
 </html>
