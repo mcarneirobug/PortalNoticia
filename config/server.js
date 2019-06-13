@@ -15,6 +15,14 @@
      * modulos fazendo o require de routes automaticamente
      * e passa para a instância do servidor 'app'
      */
-    consign().include('app/routes').into(app);
+    consign()
+    .include('app/routes')
+    .then('config/dbConnection.js')
+    .into(app);
+
+    /**
+     * com o modo .then() podemos incluir outros módulos
+     */
+
 
     module.exports = app;
