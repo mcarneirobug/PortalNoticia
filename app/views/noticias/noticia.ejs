@@ -1,12 +1,28 @@
 <!DOCTYPE html>
-	<html lang="pt-br">
-		<head>
-			<meta charset="utf-8"/>
-			<title>Portal de not�cias</title>
-		</head>
-	<body>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Notícia</title>
+</head>
+<body>
+	<h1>Notícia</h1>
 
-		<h1>Not�cia</h1>
+	<table>
+		<tr>
+			<td>ID</td>
+			<td>Título</td>
+			<td>Notícia</td>
+		</tr>
 
-	</body>
+		<!-- = serve para imprimir o valor na tela -->
+		<tr>
+			<td><%= noticia[0].id_noticias	 %></td>
+			<td><%= noticia[0].titulo	     %></td>
+			<td><%= noticia[0].noticia 	 %></td>
+		</tr>
+	</table>
+
+</body>
 </html>
