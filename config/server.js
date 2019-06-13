@@ -1,7 +1,8 @@
 
     var express = require('express');
-    var app = express();
+    var consign = require('consign');
 
+    var app = express();
     app.set('views', './app/views');
 
     /**
@@ -9,5 +10,11 @@
      * quem irá manipular é o ejs
      */
     app.set('view engine', 'ejs');
+    /**
+     * com o consign nós incluímos todos os 
+     * modulos fazendo o require de routes automaticamente
+     * e passa para a instância do servidor 'app'
+     */
+    consign().include('app/routes').into(app);
 
     module.exports = app;
