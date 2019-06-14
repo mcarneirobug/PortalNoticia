@@ -23,9 +23,11 @@
 
             var error = req.validationErrors();
 
+            console.log(error);
+
             if(error) {
                 // se der erro eu não continuo com a execução da conexão com o db
-                res.render("admin/form_add_noticia.ejs");
+                res.render("admin/form_add_noticia.ejs", {validacao : error});
                 return; 
             }
 
