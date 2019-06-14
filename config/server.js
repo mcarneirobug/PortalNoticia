@@ -1,6 +1,7 @@
 
     var express = require('express');
     var consign = require('consign');
+    var bodyParser = require('body-parser');
 
     var app = express();
     app.set('views', './app/views');
@@ -10,6 +11,10 @@
      * quem irá manipular é o ejs
      */
     app.set('view engine', 'ejs');
+
+    //pasar o body-parser
+    app.use(bodyParser.urlencoded({extended: true}));
+
     /**
      * com o consign nós incluímos todos os 
      * modulos fazendo o require de routes automaticamente
