@@ -1,23 +1,20 @@
     
-    module.exports = function(app) {
-
-        app.get('/noticias', function(req, res) {
-       
-            var mysql = require('mysql');
-            var connection = mysql.createConnection({
-                host: 'localhost',
-                user: 'root',
-                password: '1234',
-                database: 'portal_noticias'
-            });
-
-            connection.query('select * from noticias', function(erro, result){
-               // res.send(result); //retornar o resultado da consulta ao database
-                  /**
-                   * Passamos as informações do database via json
-                   * e será manipulada pela view ejs 
-                   */
-                  res.render("noticias/noticias", {noticias : result});
-            });     
+   module.exports = function(application) {
+        
+    application.get('/noticias', function(req, res) {
+        /**
+         * Dessa forma a conexão com o bd só vai ser 
+         * estabelecida quando acessarmos a rota e 
+         * não no autoload 
+         */
+        var connection = application.config.dbConnection(); //é possível por causa do consign está passando tudo pra app
+        var noticiasModel = application.app.models.noticiasModel;
+        /**
+         * Recupera as noticias através do 
+         * getNoticias
+         */
+        noticiasModel.getNoticias(connection,  function(error, result) {
+            res.render("noticias/noticias", {noticias : result}); //poderemos recuperar os dados do banco através de indices no ejs
+        });
     });
 };

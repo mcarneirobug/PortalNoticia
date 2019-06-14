@@ -1,7 +1,7 @@
 
     module.exports = function(application) {
         
-        app.get('/noticias', function(req, res) {
+        application.get('/noticias', function(req, res) {
             /**
              * Dessa forma a conexão com o bd só vai ser 
              * estabelecida quando acessarmos a rota e 
