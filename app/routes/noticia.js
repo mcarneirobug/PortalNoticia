@@ -8,9 +8,9 @@
              * não no autoload 
              */
             var connection = app.config.dbConnection(); //é possível por causa do consign está passando tudo pra app
-            var noticiasModel = app.app.models.noticiasModel;
+            var noticiasModel = new app.app.models.NoticiasDAO(connection);
 
-            noticiasModel.getNoticia(connection, function(error, result) {
+            noticiasModel.getNoticia(function(error, result) {
                 res.render("noticias/noticia", {noticia : result});
             });
         });

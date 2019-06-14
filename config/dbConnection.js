@@ -7,7 +7,6 @@
      * e podemos manipular a partir de uma variável
      */
     var connMySQL = function() {
-        console.log('Conexao com db foi estabelecida');
         return mysql.createConnection({
             host: 'localhost',
             user: 'root',
@@ -17,6 +16,5 @@
     }
 
     module.exports = function() {
-       console.log('O autoload carregou o módulo de conexão com bd.');
        return connMySQL;
     }
