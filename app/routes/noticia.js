@@ -8,11 +8,11 @@
              * não no autoload 
              */
             var connection = app.config.dbConnection(); //é possível por causa do consign está passando tudo pra app
+            var noticiasModel = app.app.models.noticiasModel;
 
-            connection.query('select * from noticias where id_noticias = 2', function(error, result) {
-                res.render("noticias/noticia", {noticia : result}); //poderemos recuperar os dados do banco através de indices no ejs
+            noticiasModel.getNoticia(connection, function(error, result) {
+                res.render("noticias/noticia", {noticia : result});
             });
         });
-        
     };
     

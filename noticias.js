@@ -1,5 +1,5 @@
 
-    module.exports = function(app) {
+    module.exports = function(application) {
         
         app.get('/noticias', function(req, res) {
             /**
@@ -7,12 +7,15 @@
              * estabelecida quando acessarmos a rota e 
              * não no autoload 
              */
-            var connection = app.config.dbConnection(); //é possível por causa do consign está passando tudo pra app
-
-            connection.query('select * from noticias', function(error, result) {
+            var connection = application.config.dbConnection(); //é possível por causa do consign está passando tudo pra app
+            var noticiasModel = application.app.models.noticiasModel;
+            /**
+             * Recupera as noticias através do 
+             * getNoticias
+             */
+            noticiasModel.getNoticias(connection,  function(error, result) {
                 res.render("noticias/noticias", {noticias : result}); //poderemos recuperar os dados do banco através de indices no ejs
             });
         });
-        
     };
     
