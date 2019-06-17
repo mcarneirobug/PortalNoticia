@@ -1,7 +1,7 @@
     
     module.exports = function(application) {
         application.get('/formulario_inclusao_noticia', function(req, res) {
-            res.render("admin/form_add_noticia.ejs");
+            res.render("admin/form_add_noticia.ejs", {validacao: {}, noticia : {}});
         });
 
 
@@ -27,7 +27,7 @@
 
             if(error) {
                 // se der erro eu não continuo com a execução da conexão com o db
-                res.render("admin/form_add_noticia.ejs", {validacao : error});
+                res.render("admin/form_add_noticia.ejs", {validacao : error, noticia : noticia});
                 return; 
             }
 
