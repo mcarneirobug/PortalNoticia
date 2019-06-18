@@ -19,7 +19,11 @@
         var connection =  application.config.dbConnection(); //é possível por causa do consign está passando tudo pra app
         var noticiasModel = new  application.app.models.NoticiasDAO(connection);
 
-        noticiasModel.getNoticia(function(error, result) {
+        // atraves do request query que conseguimos recuperar o que é passado por parâmetro
+
+        var id_noticia = req.query; //pega o id passado pela query 
+
+        noticiasModel.getNoticia(id_noticia, function(error, result) {
             res.render("noticias/noticia", {noticia : result});
         });
     }

@@ -15,6 +15,9 @@
 
     // os middlers tratão o request
 
+    // dessa forma utilizaremos todos os recursos dentro de public 
+    // sem precisar mapear um por um 
+    app.use(express.static('./app/public'));
     //passar o body-parser
     app.use(bodyParser.urlencoded({extended: true}));
     app.use(expressValidator());
